@@ -26,5 +26,3 @@ const bootstrap = async () => {
 };
 
 bootstrap();
-
-// mongodb+srv://noretsandrii:S5eeOXrQB4AlsolE@cluster0.8rjarb0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
