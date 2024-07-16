@@ -7,3 +7,13 @@ export const getContactById = (contactId) =>
 
 export const createContact = (contactData) =>
   ContactsCollection.create(contactData);
+
+export const updateContact = (contactId, contactData, options = {}) =>
+  ContactsCollection.findOneAndUpdate({ _id: contactId }, contactData, {
+    new: true,
+    includeResultMetadata: true,
+    ...options,
+  });
+
+export const deleteContact = (contactId) =>
+  ContactsCollection.findOneAndDelete({ _id: contactId });
