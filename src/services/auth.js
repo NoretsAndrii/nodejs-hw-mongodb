@@ -42,3 +42,6 @@ export const loginUser = async (userData) => {
     refreshTokenValidUntil: new Date(Date.now() + THIRTY_DAYS),
   });
 };
+
+export const logoutUser = (sessionId) =>
+  SessionCollection.findOneAndDelete({ _id: sessionId });
