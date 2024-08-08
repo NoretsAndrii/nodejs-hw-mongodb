@@ -2,6 +2,8 @@ import { startServer } from './server.js';
 import mongoose from 'mongoose';
 
 import { env } from './utils/env.js';
+import { createDirIfNotExists } from './utils/createDirIfNotExists.js';
+import { TEMP_UPLOAD_DIR, UPLOAD_DIR } from './constants/index.js';
 
 const initMongoConnection = async () => {
   try {
@@ -22,6 +24,8 @@ const initMongoConnection = async () => {
 
 const bootstrap = async () => {
   await initMongoConnection();
+  await createDirIfNotExists(TEMP_UPLOAD_DIR);
+  await createDirIfNotExists(UPLOAD_DIR);
   startServer();
 };
 
